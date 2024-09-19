@@ -1,6 +1,6 @@
 from django.contrib import admin
 from clients.models import Client
-from services.models import Service, Plan, Subscriprion
+from services.models import Service, Plan, Subscription
 
 @admin.register(Client)
 class ClientModelAdmin(admin.ModelAdmin):
@@ -15,6 +15,6 @@ class PlanModelAdmin(admin.ModelAdmin):
     list_display = ('plan_type', 'discount_percent',)
 
 
-@admin.register(Subscriprion)
+@admin.register(Subscription)
 class SubscriptionModelAdmin(admin.ModelAdmin):
     list_display = ('client', 'service', 'plan',)
