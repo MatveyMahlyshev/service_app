@@ -13,6 +13,8 @@ WORKDIR /service
 # Открываем порт
 EXPOSE 8000
 
+RUN apk add postgresql-client build-base postgresql-dev
+
 # Устанавливаем зависимости
 RUN pip install --no-cache-dir -r /service/requirements.txt
 
