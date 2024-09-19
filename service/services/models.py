@@ -6,6 +6,9 @@ class Service(models.Model):
     name = models.CharField(max_length=50)
     full_price = models.PositiveIntegerField()
 
+    def __str__(self):
+        return self.name
+
 
 
 class Plan(models.Model):
@@ -19,6 +22,11 @@ class Plan(models.Model):
                                                    validators=[
                                                        MaxValueValidator(100)
                                                    ])
+    
+    def __str__(self):
+        if self.discount_percent == 0:
+            return f'No discount'
+        return f"Discount: {self.discount_percent}%"
 
 
 class Subscriprion(models.Model):
