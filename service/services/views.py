@@ -8,6 +8,7 @@ from django.db.models import Prefetch
 
 class SubscriptionView(ReadOnlyModelViewSet):
     queryset = Subscription.objects.all().prefetch_related(
+        'service',
         'plan',
         Prefetch('client', 
                  queryset=Client.objects.all().select_related('user').only('company_name',
